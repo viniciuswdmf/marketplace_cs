@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="11.461" tests="3" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-05-15T17:35:41" tests="0" file="cypress\e2e\billingCycle.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Cenários felizes" timestamp="2024-05-15T17:35:41" tests="3" time="11.455" failures="0">
+    <testcase name="Cenários felizes deve cadastrar um ciclo de pagamento" time="6.014" classname="deve cadastrar um ciclo de pagamento">
+    </testcase>
+    <testcase name="Cenários felizes deve alterar um ciclo de pagamento" time="3.309" classname="deve alterar um ciclo de pagamento">
+    </testcase>
+    <testcase name="Cenários felizes deve excluir um ciclo de pagamento" time="0.431" classname="deve excluir um ciclo de pagamento">
+    </testcase>
+  </testsuite>
+</testsuites>
