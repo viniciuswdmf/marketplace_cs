@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: npm install
+      run: cd e2e; npm install
   cypress-tests-desktop:
     needs: eslint
     runs-on: ubuntu-latest
