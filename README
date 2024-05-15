@@ -1,0 +1,8 @@
+Para instalar as dependencias após baixar o projeto:
+
+"npm i"
+
+para rodar backend:
+
+"node src/loader.js"
+

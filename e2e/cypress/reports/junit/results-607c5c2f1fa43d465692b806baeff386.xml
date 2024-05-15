@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="13.696" tests="3" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-05-15T13:39:52" tests="0" file="cypress\e2e\billingCycle.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Cenários de Sucesso" timestamp="2024-05-15T13:39:52" tests="3" time="13.688" failures="1">
+    <testcase name="Cenários de Sucesso deve cadastrar um ciclo de pagamento" time="0.000" classname="deve cadastrar um ciclo de pagamento">
+      <failure message="Timed out retrying after 4000ms: expected &apos;&lt;div.title&gt;&apos; to have text &apos;bataa&apos;, but the text was &apos;Sucesso&apos;" type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<div.title>' to have text 'bataa', but the text was 'Sucesso'
+    at Context.eval (webpack:///./cypress/e2e/billingCycle.cy.js:27:68)
+
+      + expected - actual
+
+      -'Sucesso'
+      +'bataa'
+      ]]></failure>
+    </testcase>
+    <testcase name="Cenários de Sucesso deve alterar um ciclo de pagamento" time="3.243" classname="deve alterar um ciclo de pagamento">
+    </testcase>
+    <testcase name="Cenários de Sucesso deve excluir um ciclo de pagamento" time="0.441" classname="deve excluir um ciclo de pagamento">
+    </testcase>
+  </testsuite>
+</testsuites>

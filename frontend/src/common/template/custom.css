@@ -1,0 +1,15 @@
+.main-footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+button{
+    margin-left: 5px;
+    margin-top:-10px;
+}
+
+.table-actions{
+    width:80% auto;
+    font-size: 22px;
+}
