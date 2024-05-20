@@ -31,10 +31,10 @@ jobs:
         run: sleep 15
 
       - name: Run Backend
-        run: cd backend; npm run dev
+        run: cd backend; npm install; npm run dev
 
       - name: Run Frontend
-        run: cd frontend; npm run dev
+        run: cd frontend; npm install; npm run dev
 
       - name: Run end-to-end tests on desktop viewport 🧪
         env:
