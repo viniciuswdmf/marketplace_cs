@@ -32,11 +32,11 @@ jobs:
 
       - name: Run Backend
         run: |
-          cd backend; npm run dev
+          cd backend; npm install; npm run dev
 
       - name: Run Frontend
         run: |
-          cd frontend; npm run dev
+          cd frontend; npm install; npm run dev
 
       - name: Run end-to-end tests on desktop viewport 🧪
         env:
