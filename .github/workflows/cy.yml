@@ -30,11 +30,6 @@ jobs:
       - name: Wait for MongoDB to start
         run: sleep 15
 
-      - name: Verify MongoDB connection
-        run: |
-          sudo apt-get install -y mongodb-clients;
-          mongo --host localhost --eval 'db.runCommand({ connectionStatus: 1 })'
-
       - name: Run Backend
         run: |
           cd backend; npm run dev
