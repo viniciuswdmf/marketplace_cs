@@ -8,16 +8,13 @@ import promise from 'redux-promise'
 import multi from 'redux-multi'
 import thunk from 'redux-thunk'
 
-import App from './main/App'
 import reducers from './main/reducers'
-
 
 const store = applyMiddleware(multi, thunk, promise)(createStore)(reducers)
 ReactDOM.render(
 <Provider store={store}>
-    <App/>
+    <Routes/>
     </Provider>
 , document.getElementById('app'))
 
-// ReactDOM.render(<App/>, document.getElementById('app'))
 

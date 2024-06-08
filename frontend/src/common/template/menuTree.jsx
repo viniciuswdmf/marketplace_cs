@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-export default props => (
-    <li className='treeview'>
-        <a href>
-            <i className={`fa fa-${props.icon}`}></i><span id='cadastro'>{props.label}</span>
-            <i className='fa fa-angle-left pull-right'></i>
-        </a>
-        <ul className='treeview-menu'>
-            {props.children}
-        </ul>
-    </li>
-)
+const MenuTree = ({ label, children }) => (
+  <li className="nav-item dropdown">
+    <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {label}
+    </a>
+    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+      {children}
+    </ul>
+  </li>
+);
+
+export default MenuTree;

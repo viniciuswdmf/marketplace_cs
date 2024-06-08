@@ -10,4 +10,8 @@ import 'modules/admin-lte/dist/css/AdminLTE.min.css'
 import 'modules/admin-lte/dist/css/skins/_all-skins.min.css'
 import 'modules/admin-lte/plugins/iCheck/flat/blue.css'
 
+import './styles.css'
 import './custom.css'
+import './bootstrap-icons.css'
+import './bootstrap.min.css';
+import './bootstrap.bundle.min';

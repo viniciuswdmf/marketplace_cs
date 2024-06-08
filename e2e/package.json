@@ -1,7 +1,13 @@
 {
   "dependencies": {
-    "cypress-mailosaur": "^2.13.0",
-    "mochawesome-merge": "^4.3.0"
+    "fs": "^0.0.1-security",
+    "mochawesome-merge": "^4.3.0",
+    "nodemailer": "^6.9.13",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "test": "npx cypress run"
   },
   "devDependencies": {
     "cypress": "^13.9.0",

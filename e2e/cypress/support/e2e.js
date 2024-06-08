@@ -16,7 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import 'cypress-mochawesome-reporter/register'
 import './commands'
-import 'cypress-mailosaur'
+// import 'cypress-mailosaur'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

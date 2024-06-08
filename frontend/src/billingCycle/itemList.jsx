@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Field, arrayInsert, arrayRemove } from 'redux-form'
 import Grid from '../common/layout/grid'
 import Input from '../common/form/input'
-import If from '../common/operator/If'
+// import If from '../common/operator/If'
 
 class ItemList extends Component {
 

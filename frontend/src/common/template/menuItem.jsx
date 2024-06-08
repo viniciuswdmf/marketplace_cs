@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default props => (
-    <li>
-        <a href={props.path}>
-            <i className={`fa fa-${props.icon}`}></i><span id={props.id}>{props.label}</span>
-        </a>
-    </li>
-)
+const MenuItem = ({ path, label, isActive }) => (
+  <li className="nav-item">
+    <a className={`nav-link ${isActive ? 'active' : ''}`} aria-current={isActive ? 'page' : undefined} href={path}>
+      {label}
+    </a>
+  </li>
+);
+
+export default MenuItem;

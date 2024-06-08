@@ -1,15 +1,18 @@
-import React from 'react'
-import {Router, Route, Redirect, hashHistory} from 'react-router'
+import React from 'react';
+import { Router, Route, Redirect, hashHistory } from 'react-router';
+import ProductGrid from '../common/products/ProductGrid';
+import AuthOrApp from './authOrApp'
+import App from './App'
 
-import Dashboard from '../dashboard/dashboard'
-import BillingCycle from '../billingCycle/billingCycle'
-import TotalSaves from '../totalSaves/totalSaves'
+const Routes = () => {
 
-export default props => (
-    <Router history={hashHistory}>
-        <Route path='/' component={Dashboard}></Route>
-        <Route path='/billingCycles' component={BillingCycle}></Route>
-        <Route path='/totalSaves' component={TotalSaves}></Route>
-        <Redirect from='*' to='/'></Redirect>
-    </Router>
-)
+    return (
+        <Router history={hashHistory}>
+            <Route path="/" component={App} />
+            <Route path="/weaponSkins" component={AuthOrApp} />
+            <Redirect from="*" to="/" />
+        </Router>
+    );
+};
+
+export default Routes;
