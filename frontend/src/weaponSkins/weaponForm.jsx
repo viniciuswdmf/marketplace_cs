@@ -2,10 +2,24 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { reduxForm, Field, formValueSelector } from 'redux-form'
-
-import { init, create } from './weaponSkinsActions'
+import LabelAndInput from '../common/form/labelAndInput'
+import FileInput from '../common/form/fileInput'
+import { init } from './weaponSkinsActions'
+import Messages from '../common/msg/messages'
 
 class WeaponForm extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleReset = this.handleReset.bind(this);
+    }
+
+
+    handleReset() {
+        const { reset } = this.props;
+        this.props.reset(); // Reset redux-form fields
+    }
+    
     render() {
         const { handleSubmit } = this.props
         return(
@@ -14,101 +28,47 @@ class WeaponForm extends Component {
     <h2>Cadastrar Skin</h2>
     <form onSubmit={handleSubmit}>
         <div className="row">
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Nome da Skin</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="nomeSkin"
-                />
-            </div>
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Qualidade da Skin</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="qualidadeSkin"
-                />
-            </div>
+                <Field name='nomeSkin' component={LabelAndInput}
+                        label='Nome da Skin' cols='6 6' placeholder='Informe o nome da skin' />
+                <Field name='qualidadeSkin' component={LabelAndInput}
+                        label='Qualidade da Skin' cols='6 6' placeholder='Informe a qualidade da skin' />
         </div>
         <div className="row">
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Descrição da Skin</label>
-                <textarea
-                    className="form-control"
-                    name="descricaoSkin"
-                ></textarea>
-            </div>
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Coleção da Skin</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="colecaoSkin"
-                />
-            </div>
+        <Field name='descricaoSkin' component={LabelAndInput}
+                        label='Descrição da Skin' cols='6 6' placeholder='Informe a descrição da skin' />
+        <Field name='colecaoSkin' component={LabelAndInput}
+                        label='Coleção da Skin' cols='6 6' placeholder='Informe a coleção da skin' />
         </div>
         <div className="row">
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Nome da Arma</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="nomeArma"
-                />
-            </div>
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Categoria da Arma</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="categoriaArma"
-                />
-            </div>
+        <Field name='nomeArma' component={LabelAndInput}
+                        label='Nome da Arma' cols='6 6' placeholder='Informe o nome da Arma' />
+        <Field name='categoriaArma' component={LabelAndInput}
+                        label='Categoria da Arma' cols='6 6' placeholder='Informe a categoria da Arma' /> 
         </div>
         <div className="row">
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Preço Médio</label>
-                <input
-                    type="number"
-                    className="form-control"
-                    name="precoMedio"
-                />
-            </div>
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Sites Disponíveis</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="sitesDisponiveis"
-                />
-            </div>
+        <Field name='precoMedio' component={LabelAndInput}
+                        label='Preço médio da Arma' cols='6 6' placeholder='Informe o preço médio da Arma' /> 
+        <Field name='sitesDisponiveis' component={LabelAndInput}
+                        label='Sites Disponiveis' cols='6 6' placeholder='Informe os sites onde há a arma' />     
         </div>
         <div className="row">
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Melhor Preço</label>
-                <input
-                    type="number"
-                    className="form-control"
-                    name="melhorPreco"
-                />
-            </div>
-            <div className="col-md-6 mb-3">
-                <label className="form-label">Site com Melhor Preço</label>
-                <input
-                    type="text"
-                    className="form-control"
-                    name="siteMelhorPreco"
-                />
-            </div>
+        <Field name='melhorPreco' component={LabelAndInput}
+                        label='Melhor Preço' cols='6 6' placeholder='Informe o melhor preço' />     
+        <Field name='siteMelhorPreco' component={LabelAndInput}
+                        label='Site com Melhor Preço' cols='6 6' placeholder='Informe o site com melhor preço' />  
+        </div>
+        <div className="row">
+        <Field name="urlImagem" component={LabelAndInput} label="URL da    Foto da skin" cols="6 6" placeholder="Coloque uma foto da skin"
+      /> 
         </div>
         <div className="row">
             <div className="col-md-6 mb-3">
                 <button type="submit" className="btn btn-primary w-100">Cadastrar</button>
             </div>
             <div className="col-md-6 mb-3">
-                <button type="reset" className="btn btn-warning w-100" onClick={this.props.init}>Limpar</button>
+                <button type="reset" className="btn btn-warning w-100"  onClick={this.handleReset}>Limpar</button>
             </div>
+            <Messages />
         </div>
     </form>
 </div>
@@ -117,13 +77,6 @@ class WeaponForm extends Component {
     }
 }
 
-WeaponForm = reduxForm({form: 'weaponForm', destroyOnUnmount: false,  onSubmit: (values) => {
-    create,
-    console.log('Formulário submetido com sucesso!', values);
-}})(WeaponForm)
-const selector = formValueSelector('weaponForm')
-const mapStateToProps = state => ({
-    sitesDisponiveis: selector(state, 'sitesDisponiveis'),
-})
-const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
-export default connect(mapStateToProps, mapDispatchToProps)(WeaponForm)
+WeaponForm = reduxForm({form: 'weaponForm', destroyOnUnmount: false})(WeaponForm)
+const mapDispatchToProps = dispatch => bindActionCreators({init, reset: reduxForm.reset}, dispatch)
+export default connect(mapDispatchToProps)(WeaponForm)

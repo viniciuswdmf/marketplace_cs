@@ -1,26 +1,65 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ProductCard from './ProductCard';
+import './ProductStyles.css'; // Importe o arquivo CSS
 
-const ProductGrid = ({ products }) => {
-    console.log('Products in grid:', products);
-
-    if (!products) {
-        return <div>Loading products...</div>;
+class ProductGrid extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage: 1
+        };
+        this.handlePageChange = this.handlePageChange.bind(this);
     }
 
-    return (
-        <section className="py-5">
-            <div className="container px-4 px-lg-5 mt-5">
-                <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {products.map((product, index) => (
-                        <div className="col mb-5" key={index}>
-                            <ProductCard product={product} />
-                        </div>
-                    ))}
+    handlePageChange(pageNumber) {
+        this.setState({ currentPage: pageNumber });
+    }
+
+    render() {
+        const { products } = this.props;
+        const { currentPage } = this.state;
+        const itemsPerPage = 12;
+
+        if (!products) {
+            return <div>Loading products...</div>;
+        }
+
+        // Inverte a ordem dos produtos
+        const reversedProducts = [...products].reverse();
+
+        // Calcula o número de páginas
+        const totalPages = Math.ceil(reversedProducts.length / itemsPerPage);
+
+        // Obtem os produtos da página atual
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const currentProducts = reversedProducts.slice(startIndex, startIndex + itemsPerPage);
+
+        return (
+            <section className="py-5">
+                <div className="container px-4 px-lg-5 mt-5">
+                    <div className="row gx-4 gx-lg-5 justify-content-center">
+                        {currentProducts.map(product => (
+                            <div className="col-3 mb-5" key={product._id}>
+                                <ProductCard product={product} />
+                            </div>
+                        ))}
+                    </div>
+                    {/* Controles de paginação */}
+                    <div className="pagination">
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index}
+                                className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}
+                                onClick={() => this.handlePageChange(index + 1)}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
-    );
-};
+            </section>
+        );
+    }
+}
 
 export default ProductGrid;

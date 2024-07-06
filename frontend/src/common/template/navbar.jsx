@@ -21,14 +21,11 @@ class Navbar extends Component {
                     <a href="#" className="nav-link dropdown-toggle" onClick={() => this.changeOpen()}
                         aria-expanded={this.state.open ? 'true' : 'false'}
                         id="navbarDropdown" role="button" data-toggle="dropdown">
-                        <img src="http://lorempixel.com/160/160/abstract" className="rounded-circle" alt="User" width="30" height="30" />
+                        <img src="https://cdn-icons-png.freepik.com/256/1077/1077114.png?semt=ais_hybrid" className="rounded-circle" alt="User" width="15" height="15"  />
                         {/* <span className="d-none d-lg-inline">{name}</span> */}
                     </a>
                     <div className={`dropdown-menu dropdown-menu-right ${this.state.open ? 'show' : ''}`} aria-labelledby="navbarDropdown">
-                        <a className="dropdown-item" href="#">
-                            <img src="http://lorempixel.com/160/160/abstract" className="rounded-circle" alt="User" width="30" height="30" />
-                            {/* <p>{name}<small>{email}</small></p> */}
-                        </a>
+                    <a className="dropdown-item" href="#">Perfil</a>
                         <div className="dropdown-divider"></div>
                         <a className="dropdown-item" href="#" onClick={this.props.logout}>Sair</a>
                     </div>

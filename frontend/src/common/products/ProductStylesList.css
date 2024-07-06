@@ -1,0 +1,30 @@
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table img.img-thumbnail {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.table .btn {
+    width: 100%;
+}
+
+.table th:nth-child(7), 
+.table td:nth-child(7), 
+.table th:nth-child(8), 
+.table td:nth-child(8) {
+    width: 8%;
+}
+
+.table th:nth-child(10), 
+.table td:nth-child(10) {
+    width: 20%;
+}
+
+.table th:nth-child(11), 
+.table td:nth-child(11) {
+    width: 10%;
+}

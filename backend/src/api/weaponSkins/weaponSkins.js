@@ -17,7 +17,8 @@ const skinsSchema = new mongoose.Schema({
     precoMedio:{type:Number, min:0, required: [true, 'Informe corretamente o preço médio']}, //media dos valores
     sitesDisponiveis:[false, sitesDisponiveisSchema],
     melhorPreco:{type:Number, min:0, required: [true, 'Informe corretamente o preço médio']}, 
-    siteMelhorPreco: {type:String, min:0, required: [true, 'Informe o nome da arma']}
+    siteMelhorPreco: {type:String, min:0, required: [true, 'Informe o nome da arma']},
+    urlImagem: {type:String, min:0, required: [true, 'Informe a URL da imagem']}
 })
 
 

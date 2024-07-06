@@ -9,10 +9,5 @@ export default props => (
                 <p className="lead fw-normal text-white-50 mb-0">Aqui você encontra o melhor preço para a skin desejada</p>
             </div>
         </div>
-        <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-            <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
-                <span className='navbar-toggler-icon'></span>
-            </button>
-        </nav>
     </header>
 )

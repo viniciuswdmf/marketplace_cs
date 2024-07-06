@@ -1,0 +1,12 @@
+#toastr {
+    max-width: 300px;
+    right: 20px;
+    top: 20px;
+}
+
+.toastr-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

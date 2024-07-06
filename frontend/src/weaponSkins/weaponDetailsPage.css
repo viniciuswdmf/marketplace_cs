@@ -1,0 +1,69 @@
+/* Container principal da página */
+.weapon-details-container {
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* Título principal */
+.weapon-details-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Estilo para a linha de detalhes */
+.weapon-details-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilo da coluna da imagem */
+.weapon-details-image-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo da imagem do produto */
+.weapon-details-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo da coluna de detalhes do produto */
+.weapon-details-info-col {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Título do produto */
+.weapon-details-info-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Estilo dos parágrafos de detalhes */
+.weapon-details-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Destaque para os rótulos */
+.weapon-details-info strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Adiciona um pouco de espaçamento e borda ao container de detalhes */
+.weapon-details-info {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}

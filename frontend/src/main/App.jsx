@@ -1,59 +1,35 @@
-
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from '../common/template/header';
 import Menu from '../common/template/menu.jsx';
 import Footer from '../common/template/footer';
-import Routes from './routes';
 import ProductGrid from '../common/products/ProductGrid.jsx';
+import { getList } from '../weaponSkins/weaponSkinsActions.js'; // Verifique o caminho correto da sua action
 
-const products = [
-    {
-        name: 'Fancy Product',
-        price: '$40.00 - $80.00',
-        image: 'https://dummyimage.com/450x300/dee2e6/6c757d.jpg',
-        link: '#',
-        buttonText: 'View options',
-    },
-    {
-        name: 'Special Item',
-        oldPrice: '$20.00',
-        price: '$18.00',
-        image: 'https://dummyimage.com/450x300/dee2e6/6c757d.jpg',
-        link: '#',
-        buttonText: 'Add to cart',
-        sale: true,
-        rating: 5,
-    },
-    {
-        name: 'Sale Item',
-        oldPrice: '$50.00',
-        price: '$25.00',
-        image: 'https://dummyimage.com/450x300/dee2e6/6c757d.jpg',
-        link: '#',
-        buttonText: 'Add to cart',
-        sale: true,
-    },
-    {
-        name: 'Popular Item',
-        price: '$40.00',
-        image: 'https://dummyimage.com/450x300/dee2e6/6c757d.jpg',
-        link: '#',
-        buttonText: 'Add to cart',
-        rating: 5,
-    },
-    // Adicione mais produtos conforme necessário
-];
+class App extends Component {
+    componentDidMount() {
+        this.props.getList(); // Dispara a ação para buscar os produtos do backend
+    }
 
-const App = () => {
+    render() {
+        const { products } = this.props;
+        return (
+            <div>
+                <Menu />
+                <Header />
+                <ProductGrid products={products} /> {/* Passa os produtos para o ProductGrid */}
+                <Footer />
+            </div>
+        );
+    }
+}
 
-    return (
-        <div>
-            <Menu />
-            <Header />
-            <ProductGrid products={products} />
-            <Footer />
-        </div>
-    );
+const mapStateToProps = state => ({
+    products: state.weaponSkins.list // Mapeia a lista de produtos do estado Redux
+});
+
+const mapDispatchToProps = {
+    getList // Ação para buscar os produtos
 };
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
