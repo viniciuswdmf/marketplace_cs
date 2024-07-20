@@ -33,7 +33,7 @@ class WeaponDetailsPage extends Component {
                 {product ? (
                     <WeaponDetails product={product} />
                 ) : (
-                    <div>Loading...</div>
+                    <div>Carregando Skins...</div>
                 )}
                 <Footer />
             </div>

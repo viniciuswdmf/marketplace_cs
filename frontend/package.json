@@ -38,5 +38,10 @@
     "style-loader": "0.13.1",
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   }
 }

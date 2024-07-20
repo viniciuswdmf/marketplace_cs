@@ -15,6 +15,44 @@ WeaponSkins.route('count', (req, res, next) => {
     });
 });
 
+// Adicionar rota de pesquisa
+WeaponSkins.route('search.get', (req, res, next) => {
+    const searchQuery = req.query.q || '';
+    const regex = new RegExp(searchQuery, 'i'); // Regex para busca case insensitive
+
+    WeaponSkins.find({
+        $or: [
+            { nomeSkin: regex },
+            { descricaoSkin: regex },
+            { colecaoSkin: regex },
+            { nomeArma: regex }
+        ]
+    }, (err, docs) => {
+        if (!err) {
+            res.json(docs);
+        } else {
+            res.status(500).json({ errors: [err] });
+        }
+    });
+});
+
+// Adicionar rota de filtragem por categoria
+WeaponSkins.route('category.get', (req, res, next) => {
+    const category = req.query.category;
+
+    if (!category) {
+        return res.status(400).json({ errors: ['Categoria não fornecida'] });
+    }
+
+    WeaponSkins.find({ categoriaArma: category }, (err, docs) => {
+        if (!err) {
+            res.json(docs);
+        } else {
+            res.status(500).json({ errors: [err] });
+        }
+    });
+});
+
 WeaponSkins.route('get', (req, res, next) => {
     const { id } = req.params;
     if (id) {

@@ -53,6 +53,15 @@ export function getProductById(id) {
             });
     };
 }
+
+export function getByCategory(category) {
+    const request = axios.get(`${BASE_URL}/weaponSkins/category?category=${category}`);
+    return {
+        type: 'WEAPONSKINS_FETCHED_BY_CATEGORY',
+        payload: request
+    };
+}
+
 export function remove(product) {
     console.log('Removing product:', product); // Adicione este log
     return dispatch => {

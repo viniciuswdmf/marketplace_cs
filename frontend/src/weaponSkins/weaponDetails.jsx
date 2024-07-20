@@ -19,7 +19,7 @@ const WeaponDetails = ({ product }) => {
                     <p><strong>Preço Médio:</strong> ${product.precoMedio}</p>
                     <p><strong>Sites Disponíveis:</strong> {product.sitesDisponiveis}</p>
                     <p><strong>Melhor Preço:</strong> ${product.melhorPreco}</p>
-                    <p><strong>Site com Melhor Preço:</strong> {product.siteMelhorPreco}</p>
+                    <p><strong>Site com Melhor Preço:</strong> <a href={product.siteMelhorPreco} target="_blank" rel="noopener noreferrer">{product.siteMelhorPreco}</a></p>
                 </div>
             </div>
         </div>

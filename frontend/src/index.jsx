@@ -9,6 +9,7 @@ import multi from 'redux-multi';
 import thunk from 'redux-thunk';
 import reducers from './main/reducers';
 import Routes from './main/routes';
+import $ from 'jquery';
 
 const store = applyMiddleware(multi, thunk, promise)(createStore)(reducers);
 

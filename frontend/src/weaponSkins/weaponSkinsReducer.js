@@ -11,6 +11,8 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, selectedProduct: action.payload };
         case 'WEAPON_SKINS_FETCHED':
             return { ...state, list: action.payload };
+        case 'WEAPONSKINS_FETCHED_BY_CATEGORY':
+            return { ...state, list: action.payload.data };
         default:
             return state;
     }
